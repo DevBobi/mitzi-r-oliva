@@ -1,0 +1,52 @@
+.fireworksCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.fireworksCanvas.active {
+  opacity: 1;
+}
+
+.celebrationText {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10001;
+  font-size: clamp(2rem, 8vw, 5rem);
+  font-weight: 900;
+  font-family: var(--font-playfair), serif;
+  color: #ffd700;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.8),
+               0 0 60px rgba(255, 215, 0, 0.6),
+               0 5px 20px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  animation: pulse-celebration 1s infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse-celebration {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .celebrationText {
+    font-size: 2rem;
+    white-space: normal;
+    text-align: center;
+    padding: 0 1rem;
+  }
+}
+

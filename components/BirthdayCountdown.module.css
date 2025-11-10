@@ -1,0 +1,285 @@
+/* Midnight Alert Popup */
+.midnightAlert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  padding: 3rem;
+  border-radius: 30px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5),
+              0 0 100px rgba(240, 147, 251, 0.8),
+              inset 0 2px 0 rgba(255, 255, 255, 0.5);
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  max-width: 500px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.alertContent {
+  text-align: center;
+  color: white;
+}
+
+.alertEmoji {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.alertTitle {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+}
+
+.alertMessage {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.alertSubtext {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.alertButton {
+  background: white;
+  color: #f5576c;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.alertButton:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Countdown Timer */
+.countdown {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 215, 0, 0.9));
+  padding: 1.5rem;
+  border-radius: 25px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+              0 0 40px rgba(255, 215, 0, 0.5),
+              inset 0 2px 0 rgba(255, 255, 255, 0.8);
+  border: 3px solid rgba(255, 215, 0, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.countdownTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2d3436;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.countdownSubtitle {
+  font-size: 0.75rem;
+  color: #636e72;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.countdownBoxes {
+  display: flex;
+  gap: 1rem;
+}
+
+.countdownBox {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  padding: 1rem;
+  border-radius: 15px;
+  text-align: center;
+  min-width: 70px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.countdownValue {
+  font-size: 2rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  font-family: 'Courier New', monospace;
+}
+
+.countdownLabel {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 0.3rem;
+}
+
+/* Birthday Message (shown after midnight) */
+.birthdayMessage {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  padding: 2rem;
+  border-radius: 25px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+              0 0 60px rgba(240, 147, 251, 0.6);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  color: white;
+}
+
+.messageEmoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: bounce 2s infinite;
+}
+
+.messageText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.messageDate {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .midnightAlert {
+    padding: 2rem;
+    margin: 0 20px;
+    max-width: calc(100vw - 40px);
+  }
+
+  .alertEmoji {
+    font-size: 3rem;
+  }
+
+  .alertTitle {
+    font-size: 2rem;
+  }
+
+  .alertMessage {
+    font-size: 1.5rem;
+  }
+
+  .alertSubtext {
+    font-size: 1rem;
+  }
+
+  .alertButton {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .countdown {
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    padding: 1rem;
+  }
+
+  .countdownTitle {
+    font-size: 0.85rem;
+  }
+
+  .countdownSubtitle {
+    font-size: 0.65rem;
+  }
+
+  .countdownBoxes {
+    gap: 0.4rem;
+    justify-content: center;
+  }
+
+  .countdownBox {
+    min-width: 55px;
+    padding: 0.6rem 0.3rem;
+  }
+
+  .countdownValue {
+    font-size: 1.3rem;
+  }
+
+  .countdownLabel {
+    font-size: 0.55rem;
+  }
+
+  .birthdayMessage {
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    padding: 1.5rem;
+  }
+
+  .messageEmoji {
+    font-size: 2rem;
+  }
+
+  .messageText {
+    font-size: 1.2rem;
+  }
+
+  .messageDate {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .countdownBox {
+    min-width: 50px;
+    padding: 0.5rem 0.2rem;
+  }
+
+  .countdownValue {
+    font-size: 1.1rem;
+  }
+
+  .countdownLabel {
+    font-size: 0.5rem;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+

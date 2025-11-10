@@ -1,0 +1,24 @@
+.cursorTrail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.trailDot {
+  position: absolute;
+  font-size: 1.5rem;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .cursorTrail {
+    display: none;
+  }
+}
+

@@ -1,0 +1,391 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 20px 50px;
+  perspective: 1000px;
+}
+
+/* Hero Background */
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/487827533_4048348582115275_9203379407453488634_n.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(8px) brightness(0.7);
+  transform: scale(1.1);
+  animation: slow-zoom 20s ease-in-out infinite alternate;
+}
+
+.bgOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, 
+    rgba(10, 14, 39, 0.7) 0%, 
+    rgba(26, 31, 58, 0.85) 50%, 
+    rgba(10, 14, 39, 0.95) 100%);
+  mix-blend-mode: multiply;
+}
+
+.bgGradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.3) 0%,
+    rgba(255, 165, 0, 0.2) 25%,
+    transparent 50%,
+    transparent 75%,
+    rgba(255, 215, 0, 0.3) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes slow-zoom {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.heroContent {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  background: rgba(10, 14, 39, 0.6);
+  backdrop-filter: blur(15px);
+  padding: 3rem 2rem;
+  border-radius: 40px;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5),
+              0 0 60px rgba(255, 215, 0, 0.2),
+              inset 0 0 60px rgba(255, 215, 0, 0.05);
+}
+
+.birthdayBadge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  color: #0a0e27;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5),
+              0 0 20px rgba(255, 215, 0, 0.4);
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.heroTitle {
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 900;
+  color: var(--light);
+  margin-bottom: 1rem;
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 
+               0 0 20px rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.5));
+}
+
+.titleLine {
+  display: block;
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  font-weight: 700;
+  opacity: 0.95;
+  margin-bottom: 0.5rem;
+}
+
+.titleName {
+  display: block;
+  background: linear-gradient(45deg, #fff, #ffd700, #fff, #ffed4e, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  filter: drop-shadow(0 0 30px rgba(255, 215, 0, 1))
+          drop-shadow(0 5px 20px rgba(255, 215, 0, 0.8))
+          drop-shadow(0 0 50px rgba(255, 255, 255, 0.5));
+  text-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+}
+
+.heroSubtitle {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Bestie Quote Styles */
+.quoteContainer {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  perspective: 1000px;
+}
+
+.bestieQuote {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 215, 0, 0.95));
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 600;
+  color: #2d3436;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4),
+              0 0 40px rgba(255, 215, 0, 0.7),
+              0 5px 20px rgba(255, 215, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  border: 3px solid rgba(255, 215, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.bestieQuote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  animation: shine 3s infinite;
+}
+
+.quoteIcon {
+  font-size: 1.5rem;
+  animation: heartbeat 1.5s infinite;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 200%;
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(1.2);
+  }
+  20%, 40% {
+    transform: scale(1);
+  }
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #ffd700, #ffed4e, #ffa500);
+  background-size: 200% auto;
+  color: #0a0e27;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  padding: 1.2rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 15px 50px rgba(255, 215, 0, 0.8),
+              0 0 40px rgba(255, 215, 0, 0.6),
+              0 5px 20px rgba(255, 165, 0, 0.5),
+              inset 0 2px 0 rgba(255, 255, 255, 0.6);
+  font-family: var(--font-poppins);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 15px 50px rgba(255, 215, 0, 0.8),
+                0 0 40px rgba(255, 215, 0, 0.6),
+                0 5px 20px rgba(255, 165, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 15px 50px rgba(255, 215, 0, 1),
+                0 0 60px rgba(255, 215, 0, 0.8),
+                0 5px 30px rgba(255, 165, 0, 0.7);
+  }
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transition: left 0.5s;
+}
+
+.ctaButton:hover::before {
+  left: 100%;
+}
+
+/* Floating Balloons */
+.floatingElements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.balloon {
+  position: absolute;
+  font-size: 3rem;
+  cursor: pointer;
+  pointer-events: auto;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
+}
+
+.balloon1 { left: 10%; top: 20%; }
+.balloon2 { left: 25%; top: 60%; }
+.balloon3 { left: 50%; top: 30%; }
+.balloon4 { left: 75%; top: 50%; }
+.balloon5 { left: 90%; top: 25%; }
+
+/* Floating Hearts */
+.floatingHearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  font-size: 2rem;
+  opacity: 0;
+  filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.6));
+}
+
+/* Sparkles */
+.sparkles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 15px 30px;
+  }
+
+  .heroContent {
+    padding: 2rem 1.5rem;
+    border-radius: 30px;
+  }
+
+  .bgImage {
+    filter: blur(10px) brightness(0.6);
+  }
+
+  .birthdayBadge {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .bestieQuote {
+    font-size: 0.95rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .quoteIcon {
+    font-size: 1.2rem;
+  }
+
+  .ctaButton {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .balloon {
+    font-size: 2rem;
+  }
+
+  .heart {
+    font-size: 1.5rem;
+  }
+
+  .sparkle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent {
+    padding: 1.5rem 1rem;
+  }
+
+  .bestieQuote {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+}

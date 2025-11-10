@@ -1,0 +1,146 @@
+/* ========================
+   CSS Reset & Base Styles
+   ======================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #ffd700;
+  --secondary: #ffed4e;
+  --accent: #ffa500;
+  --yellow-bright: #ffff00;
+  --yellow-gold: #ffd700;
+  --dark: #0a0e27;
+  --dark-blue: #1a1f3a;
+  --light: #ffffff;
+  --gradient-1: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  --gradient-2: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
+  --gradient-3: linear-gradient(135deg, #1a1f3a 0%, #0a0e27 100%);
+  --gradient-4: linear-gradient(135deg, #ffd700 0%, #ffa500 50%, #ff6b00 100%);
+  --gradient-glow: linear-gradient(135deg, rgba(255, 215, 0, 0.3) 0%, rgba(255, 165, 0, 0.3) 100%);
+  
+  --font-poppins: 'Poppins', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-poppins), sans-serif;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2d1b3d 100%);
+  color: var(--light);
+  overflow-x: hidden;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ========================
+   Section Styles
+   ======================== */
+section {
+  scroll-margin-top: 80px;
+}
+
+.section-title {
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  text-align: center;
+  margin-bottom: 3rem;
+  background: var(--gradient-4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 1s ease;
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgba(255, 215, 0, 0.8);
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.2s forwards;
+}
+
+/* ========================
+   Animations
+   ======================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-100px) rotate(10deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* ========================
+   Utility Classes
+   ======================== */
+.fade-in-up {
+  animation: fadeInUp 1s ease;
+}
+
+/* ========================
+   Mobile Responsive Base
+   ======================== */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+}
+
