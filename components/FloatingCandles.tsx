@@ -4,54 +4,53 @@ import { motion } from 'framer-motion'
 import styles from './FloatingCandles.module.css'
 
 export default function FloatingCandles() {
-  const candles = Array.from({ length: 15 }, (_, i) => ({
+  const items = Array.from({ length: 20 }, (_, i) => ({
     id: i,
     left: `${Math.random() * 90 + 5}%`,
     delay: Math.random() * 5,
     duration: 8 + Math.random() * 4,
-    size: 0.8 + Math.random() * 0.4,
+    size: 0.7 + Math.random() * 0.5,
+    icon: ['✨', '🎈', '🎁', '🎀', '💝', '🌟', '⭐', '💫'][Math.floor(Math.random() * 8)],
+    rotation: Math.random() * 360,
   }))
 
   return (
     <div className={styles.candlesContainer}>
-      {candles.map((candle) => (
+      {items.map((item) => (
         <motion.div
-          key={candle.id}
-          className={styles.candle}
-          initial={{ y: -100, opacity: 0 }}
+          key={item.id}
+          className={styles.floatingItem}
+          initial={{ y: -100, opacity: 0, rotate: 0 }}
           animate={{
-            y: [0, -20, 0],
-            opacity: [0.7, 1, 0.7],
+            y: [0, -30, 0],
+            opacity: [0.6, 1, 0.6],
+            rotate: [item.rotation, item.rotation + 360],
           }}
           transition={{
-            duration: candle.duration,
+            duration: item.duration,
             repeat: Infinity,
-            delay: candle.delay,
+            delay: item.delay,
             ease: 'easeInOut',
           }}
           style={{
-            left: candle.left,
-            top: `${20 + Math.random() * 40}%`,
-            transform: `scale(${candle.size})`,
+            left: item.left,
+            top: `${20 + Math.random() * 50}%`,
+            fontSize: `${1.5 + item.size}rem`,
           }}
         >
-          <div className={styles.candleBody}>
-            <div className={styles.wick}></div>
-          </div>
-          <motion.div
-            className={styles.flame}
+          <motion.span
+            className={styles.icon}
             animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.8, 1, 0.8],
+              scale: [1, 1.3, 1],
             }}
             transition={{
-              duration: 0.5 + Math.random() * 0.5,
+              duration: 1 + Math.random(),
               repeat: Infinity,
               ease: 'easeInOut',
             }}
           >
-            🕯️
-          </motion.div>
+            {item.icon}
+          </motion.span>
           <div className={styles.glow}></div>
         </motion.div>
       ))}
