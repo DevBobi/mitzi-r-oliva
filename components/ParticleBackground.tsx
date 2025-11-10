@@ -30,14 +30,14 @@ export default function ParticleBackground() {
         fpsLimit: 120,
         particles: {
           color: {
-            value: ['#ffd700', '#ffed4e', '#ffa500', '#ff8c00', '#ffff00'],
+            value: ['#ffd700', '#ffed4e', '#ffa500', '#5d3fd3', '#ffffff'],
           },
           links: {
             color: '#ffd700',
             distance: 150,
             enable: true,
-            opacity: 0.3,
-            width: 1,
+            opacity: 0.4,
+            width: 1.5,
           },
           move: {
             direction: 'none',

@@ -12,7 +12,7 @@ interface Position {
 
 export default function CursorTrail() {
   const [positions, setPositions] = useState<Position[]>([])
-  const [emoji] = useState(['🎉', '✨', '🎈', '💖', '🌟', '🎊'])
+  const [emoji] = useState(['✨', '⚡', '🌟', '✦', '★', '✧', '⭐', '🪄'])
 
   useEffect(() => {
     let idCounter = 0

@@ -7,23 +7,30 @@
   box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700;900&display=swap');
+
 :root {
   --primary: #ffd700;
   --secondary: #ffed4e;
   --accent: #ffa500;
-  --yellow-bright: #ffff00;
-  --yellow-gold: #ffd700;
+  --gryffindor-red: #ae0001;
+  --gryffindor-gold: #eeba30;
+  --ravenclaw-blue: #0e1a40;
+  --magic-purple: #5d3fd3;
   --dark: #0a0e27;
   --dark-blue: #1a1f3a;
   --light: #ffffff;
   --gradient-1: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-  --gradient-2: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
+  --gradient-2: linear-gradient(135deg, #ae0001 0%, #eeba30 100%);
   --gradient-3: linear-gradient(135deg, #1a1f3a 0%, #0a0e27 100%);
   --gradient-4: linear-gradient(135deg, #ffd700 0%, #ffa500 50%, #ff6b00 100%);
+  --gradient-magic: linear-gradient(135deg, #5d3fd3 0%, #ffd700 50%, #ae0001 100%);
   --gradient-glow: linear-gradient(135deg, rgba(255, 215, 0, 0.3) 0%, rgba(255, 165, 0, 0.3) 100%);
   
   --font-poppins: 'Poppins', sans-serif;
   --font-playfair: 'Playfair Display', serif;
+  --font-magic: 'Cinzel', serif;
+  --font-magic-decorative: 'Cinzel Decorative', serif;
 }
 
 html {
@@ -53,7 +60,7 @@ section {
 }
 
 .section-title {
-  font-family: var(--font-playfair), serif;
+  font-family: var(--font-magic-decorative), serif;
   font-size: clamp(2.5rem, 6vw, 4rem);
   text-align: center;
   margin-bottom: 3rem;
@@ -63,6 +70,43 @@ section {
   background-clip: text;
   animation: fadeInUp 1s ease;
   filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+  letter-spacing: 3px;
+  position: relative;
+}
+
+.section-title::before,
+.section-title::after {
+  content: '✦';
+  position: absolute;
+  font-size: 2rem;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: sparkle-rotate 3s linear infinite;
+}
+
+.section-title::before {
+  left: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.section-title::after {
+  right: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation-delay: 1.5s;
+}
+
+@keyframes sparkle-rotate {
+  0%, 100% {
+    transform: translateY(-50%) rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-50%) rotate(180deg) scale(1.2);
+    opacity: 1;
+  }
 }
 
 .section-subtitle {

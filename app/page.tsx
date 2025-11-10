@@ -14,6 +14,7 @@ import CursorTrail from '@/components/CursorTrail'
 import BirthdayCountdown from '@/components/BirthdayCountdown'
 import MusicPlayer from '@/components/MusicPlayer'
 import FireworksMode from '@/components/FireworksMode'
+import FloatingCandles from '@/components/FloatingCandles'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Home() {
@@ -69,6 +70,7 @@ export default function Home() {
       {/* Background Effects */}
       <AnimatedBackground />
       <ParticleBackground />
+      <FloatingCandles />
       
       {/* Interactive Effects */}
       <CursorTrail />
