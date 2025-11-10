@@ -10,11 +10,9 @@ import Footer from '@/components/Footer'
 import ConfettiEffect from '@/components/ConfettiEffect'
 import AnimatedBackground from '@/components/AnimatedBackground'
 import ParticleBackground from '@/components/ParticleBackground'
-import CursorTrail from '@/components/CursorTrail'
 import BirthdayCountdown from '@/components/BirthdayCountdown'
 import MusicPlayer from '@/components/MusicPlayer'
 import FireworksMode from '@/components/FireworksMode'
-import FloatingCandles from '@/components/FloatingCandles'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Home() {
@@ -70,10 +68,8 @@ export default function Home() {
       {/* Background Effects */}
       <AnimatedBackground />
       <ParticleBackground />
-      <FloatingCandles />
       
       {/* Interactive Effects */}
-      <CursorTrail />
       <ConfettiEffect />
       <FireworksMode />
       

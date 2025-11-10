@@ -46,15 +46,12 @@ export default function Gallery3D() {
   }
 
   const itemVariants = {
-    hidden: { scale: 0, opacity: 0, rotateY: -180 },
+    hidden: { scale: 0.8, opacity: 0 },
     visible: {
       scale: 1,
       opacity: 1,
-      rotateY: 0,
       transition: {
-        type: 'spring',
-        damping: 15,
-        stiffness: 100
+        duration: 0.4
       }
     }
   }
@@ -93,9 +90,8 @@ export default function Gallery3D() {
               <motion.div
                 className={`${styles.card} ${flipped[photo.id] ? styles.flipped : ''}`}
                 onClick={() => toggleFlip(photo.id)}
-                whileHover={{ scale: 1.05, z: 50 }}
-                transition={{ duration: 0.3 }}
-                style={{ transformStyle: 'preserve-3d' }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
               >
                 {/* Front */}
                 <div className={styles.cardFront}>
@@ -115,13 +111,9 @@ export default function Gallery3D() {
                         onError={() => handleImageError(photo.id)}
                       />
                       <div className={styles.cardOverlay}>
-                        <motion.div
-                          className={styles.overlayContent}
-                          initial={{ opacity: 0, y: 20 }}
-                          whileHover={{ opacity: 1, y: 0 }}
-                        >
+                        <div className={styles.overlayContent}>
                           <span className={styles.flipHint}>🔄 Click to flip</span>
-                        </motion.div>
+                        </div>
                       </div>
                     </>
                   )}
@@ -146,4 +138,5 @@ export default function Gallery3D() {
     </section>
   )
 }
+
 

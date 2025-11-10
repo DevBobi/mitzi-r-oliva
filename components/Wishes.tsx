@@ -37,15 +37,12 @@ export default function Wishes() {
   }
 
   const cardVariants = {
-    hidden: { x: -100, opacity: 0, rotateY: -90 },
+    hidden: { x: -50, opacity: 0 },
     visible: {
       x: 0,
       opacity: 1,
-      rotateY: 0,
       transition: {
-        type: 'spring',
-        damping: 15,
-        stiffness: 80
+        duration: 0.4
       }
     }
   }
@@ -73,25 +70,18 @@ export default function Wishes() {
               className={styles.wishCard}
               variants={cardVariants}
               whileHover={{
-                y: -10,
-                scale: 1.03,
-                boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
-                transition: { duration: 0.3 }
+                y: -5,
+                scale: 1.01,
+                transition: { duration: 0.2 }
               }}
               style={{ 
-                perspective: 1000,
                 borderImage: wish.gradient,
                 borderImageSlice: 1
               }}
             >
-              <motion.div 
-                className={styles.quoteIcon}
-                initial={{ scale: 0, rotate: -180 }}
-                animate={isInView ? { scale: 1, rotate: 0 } : {}}
-                transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
-              >
+              <div className={styles.quoteIcon}>
                 💌
-              </motion.div>
+              </div>
               <motion.p 
                 className={styles.wishText}
                 initial={{ opacity: 0 }}

@@ -38,15 +38,12 @@ export default function About() {
   }
 
   const cardVariants = {
-    hidden: { y: 100, opacity: 0, rotateX: -15 },
+    hidden: { y: 50, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      rotateX: 0,
       transition: {
-        type: 'spring',
-        damping: 15,
-        stiffness: 100
+        duration: 0.4
       }
     }
   }
@@ -74,24 +71,14 @@ export default function About() {
               className={styles.aboutCard}
               variants={cardVariants}
               whileHover={{
-                y: -20,
-                scale: 1.05,
-                rotateY: 5,
-                boxShadow: '0 30px 80px rgba(0, 0, 0, 0.2)',
-                transition: { duration: 0.3 }
+                y: -10,
+                scale: 1.02,
+                transition: { duration: 0.2 }
               }}
-              style={{ perspective: 1000 }}
             >
-              <motion.div 
-                className={styles.cardIcon}
-                whileHover={{
-                  scale: 1.3,
-                  rotate: 360,
-                  transition: { duration: 0.6 }
-                }}
-              >
+              <div className={styles.cardIcon}>
                 {card.icon}
-              </motion.div>
+              </div>
               <motion.h3
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}

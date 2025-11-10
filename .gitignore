@@ -11,7 +11,9 @@
 
 # production
 /build
-
+.next
+/.next
+/next
 # misc
 .DS_Store
 *.pem
@@ -34,4 +36,6 @@ next-env.d.ts
 # IDE
 .vscode
 .idea
+
+
 

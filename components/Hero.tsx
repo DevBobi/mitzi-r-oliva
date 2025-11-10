@@ -74,16 +74,6 @@ export default function Hero() {
     })
   }
 
-  const letterVariants = {
-    hover: {
-      scale: 1.2,
-      color: '#ffd700',
-      transition: {
-        type: 'spring',
-        stiffness: 300
-      }
-    }
-  }
 
   return (
     <section id="home" className={styles.hero}>
@@ -124,31 +114,12 @@ export default function Hero() {
         </motion.div>
 
         <motion.h1 className={styles.heroTitle} variants={itemVariants}>
-          <motion.span className={styles.titleLine}>
-            {'Happy Birthday'.split('').map((letter, index) => (
-              <motion.span
-                key={index}
-                variants={letterVariants}
-                whileHover="hover"
-                style={{ display: 'inline-block' }}
-              >
-                {letter === ' ' ? '\u00A0' : letter}
-              </motion.span>
-            ))}
-          </motion.span>
-          <motion.span 
-            className={styles.titleName}
-            animate={{
-              backgroundPosition: ['0% center', '200% center'],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: 'linear'
-            }}
-          >
+          <span className={styles.titleLine}>
+            Happy Birthday
+          </span>
+          <span className={styles.titleName}>
             Mitzi R Oliva
-          </motion.span>
+          </span>
         </motion.h1>
 
         <motion.p 
@@ -200,33 +171,6 @@ export default function Hero() {
           </motion.span>
         </motion.button>
 
-        {/* Sparkles Effect */}
-        <div className={styles.sparkles}>
-          {[...Array(12)].map((_, i) => (
-            <motion.div
-              key={i}
-              className={styles.sparkle}
-              initial={{ scale: 0, rotate: 0 }}
-              animate={{
-                scale: [0, 1, 0],
-                rotate: [0, 180, 360],
-                opacity: [0, 1, 0]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                delay: i * 0.2,
-                ease: 'easeInOut'
-              }}
-              style={{
-                left: `${20 + (i * 6)}%`,
-                top: `${30 + Math.sin(i) * 20}%`
-              }}
-            >
-              ✨
-            </motion.div>
-          ))}
-        </div>
       </motion.div>
 
       <div className={styles.floatingElements}>
@@ -249,32 +193,6 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Floating hearts */}
-      <div className={styles.floatingHearts}>
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            className={styles.heart}
-            initial={{ y: 0, opacity: 0 }}
-            animate={{
-              y: -1000,
-              opacity: [0, 1, 1, 0],
-              x: [0, Math.sin(i) * 100]
-            }}
-            transition={{
-              duration: 8 + Math.random() * 4,
-              repeat: Infinity,
-              delay: i * 1.5,
-              ease: 'linear'
-            }}
-            style={{
-              left: `${10 + i * 12}%`
-            }}
-          >
-            💖
-          </motion.div>
-        ))}
-      </div>
     </section>
   )
 }
